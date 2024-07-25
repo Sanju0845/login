@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OTP Verification Form</title>
+<link rel="stylesheet" href="otp.css">
+<style>
+  /* Add any additional CSS styles here */
+</style>
+</head>
+<body>
+
+  <form class="form">
+    <div class="title">OTP Verification Code</div>
+    <p class="message">We have sent a code to your email address</p>
+    <div class="inputs">
+      <input id="input1" type="text" maxlength="1" oninput="moveToNext(this)" onkeypress="return isNumberKey(event)" autofocus>
+      <input id="input2" type="text" maxlength="1" oninput="moveToNext(this)" onkeypress="return isNumberKey(event)">
+      <input id="input3" type="text" maxlength="1" oninput="moveToNext(this)" onkeypress="return isNumberKey(event)">
+      <input id="input4" type="text" maxlength="1" oninput="moveToNext(this)" onkeypress="return isNumberKey(event)">
+    </div>
+    <button type="button" class="action" onclick="verifyOTP()">Verify Me</button>
+  </form>
+
+<script>
+  function moveToNext(currentInput) {
+    if (currentInput.value.length === currentInput.maxLength) {
+      var nextInput = currentInput.nextElementSibling;
+      if (nextInput !== null) {
+        nextInput.focus();
+      }
+    }
+  }
+
+  function isNumberKey(evt) {
+    var charCode = (evt.which) ? evt.which : evt.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+      return false;
+    }
+    return true;
+  }
+
+  function verifyOTP() {
+    var input1 = document.getElementById("input1").value;
+    var input2 = document.getElementById("input2").value;
+    var input3 = document.getElementById("input3").value;
+    var input4 = document.getElementById("input4").value;
+
+    // Perform verification logic here (e.g., send OTP to server, validate, etc.)
+    // For demonstration, let's just log the OTP
+    var otp = input1 + input2 + input3 + input4;
+    console.log("Entered OTP: " + otp);
+  }
+</script>
+
+</body>
+</html>

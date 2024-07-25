@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign Up / Sign In</title>
+<link rel="stylesheet" href="loginsignup.css">
+<script src="loginsignup.js" defer></script> <!-- Defer script execution until after DOM is parsed -->
+</head>
+<body>
+
+<div class="form-box">
+  <form id="signupForm" class="form">
+    <span class="title">Sign up</span>
+    <span class="subtitle">Create a free account with your email.</span>
+    <div class="form-container">
+      <input type="text" class="input" placeholder="Full Name" required>
+      <input type="email" class="input" placeholder="Email" required>
+      <input type="password" class="input" placeholder="Password" required>
+    </div>
+    <button type="submit">Sign up</button>
+    <p>Already have an account? <a href="#" onclick="toggleForms(event)">Sign in</a></p>
+  </form>
+
+  <form id="loginForm" class="form hidden">
+    <span class="title">Sign in</span>
+    <span class="subtitle">Sign in to your account.</span>
+    <div class="form-container">
+      <input type="email" class="input" placeholder="Email" required>
+      <input type="password" class="input" placeholder="Password" required>
+    </div>
+    <button type="submit">Sign in</button>
+    <p>Don't have an account? <a href="#" onclick="toggleForms(event)">Sign up</a></p>
+  </form>
+</div>
+
+</body>
+</html>
